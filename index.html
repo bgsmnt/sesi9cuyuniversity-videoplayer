@@ -1,0 +1,103 @@
+<style>
+    *,
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    video {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: 2px solid crimson;
+    }
+
+    .video-component {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px 12px;
+    }
+
+    .btn {
+        border: none;
+        padding: 10px;
+        font-weight: 800;
+        cursor: pointer;
+        font-size: 8px;
+        border-radius: 8px;
+    }
+
+
+    .btn-play {
+        background-color: crimson;
+        color: white;
+    }
+
+    .btn-pause {
+        background-color: grey;
+        color: white;
+    }
+
+    .btn-minimize {
+        background-color: black;
+        color: white;
+    }
+</style>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Video</title>
+</head>
+
+<body>
+    <div class="container">
+        <video width="720">
+            <source src="@bgs.panpan-7350470874320997638-no-watermark.mp4" type="video/mp4" />
+        </video>
+        <div class="video-component">
+            <button onclick="play()" class="btn btn-play">▶</button>
+            <button onclick="pause()" class="btn btn-pause">❚❚</button>
+            <button onclick="minimize()" class="btn btn-minimize">◻</button>
+            <button onclick="toggleFullScreen()" class="btn btn-fullscreen">⛶</button>
+        </div>
+    </div>
+</body>
+<script>
+    const videoComponent = document.querySelector("video")
+    function play() {
+        console.log("playing")
+        videoComponent.play()
+    }
+    function pause() {
+        console.log("pause")
+        videoComponent.pause()
+    }
+    function minimize() {
+        console.log("minimize")
+        videoComponent.requestPictureInPicture()
+    }
+
+    function toggleFullScreen() {
+        console.log("fullscreen")
+        videoComponent.requestFullscreen()
+    }
+
+</script>
+
+</html>
